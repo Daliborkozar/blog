@@ -4,14 +4,17 @@ import { Redirect, withRouter } from "react-router-dom"
 import firebase from "../firebase/config"
 
 const Signin= () => {
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
 
     const [routeRedirect, setRedirect] = useState(false)
 
 
-    const signin= () => {
-        console.log("creating user")
+    const signin= async (e) => {
+        e.preventDefault();
+        let user = await firebase.signin(email, password);
+        console.log(user)
+        //redirect
     }
 
     return(

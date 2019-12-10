@@ -9,7 +9,7 @@ const Navigation = (props) => {
         console.log("user is logged out")
     }
 
-    let buttons
+    let buttons;
 
     if(userState != null) {
         buttons = (

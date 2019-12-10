@@ -1,7 +1,8 @@
-import firebase from "firebase/firebase-app"
-import "firebase/firebase-auth"
+import firebase from "firebase/app"
+import "firebase/auth"
 import "firebase/firestore"
 import "firebase/storage"
+
 
 const config = {
     apiKey: "AIzaSyAWeT-KCqz4ED7E6UOLMxiEZHNrWxCF3rQ",
@@ -17,16 +18,9 @@ const config = {
 class Firebase {
     constructor(){
         firebase.initializeApp(config)
-        this.auth = firebase.auth;
-        this.firestore = firebase.firestore;
-        this.storage = firebase.storage;
-    }
-
-    async login(email, password){
-        const user = await firebase.auth().signInWithEmailAndPassword(email, password).catch( err => {
-            console.log(err)
-        })
-        return user
+        this.auth = firebase.auth();
+        this.firestore = firebase.firestore();
+        
     }
 
     async signin(email, password) {
@@ -36,9 +30,18 @@ class Firebase {
         return user;
     }
 
+    async login(email, password){
+        const user = await firebase.auth().signInWithEmailAndPassword(email, password).catch( err => {
+            console.log(err);
+        })
+        return user;
+    }
+
+   
+
     async logout(){
-        await firebase.auth().signOut.catch ( err => {
-            console.log(err)
+        await firebase.auth().signOut().catch ( err => {
+            console.log(err);
         })
     }
 
