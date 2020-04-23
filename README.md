@@ -1,4 +1,4 @@
-Project for a Blog with firebase.
+Project for a Blog with firebase. Project is on hold. Will be back to react after strong knowledge in javascript
 
 The user should be able to register and make blog post.
 
